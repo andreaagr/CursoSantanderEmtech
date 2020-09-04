@@ -6,7 +6,6 @@
 '''
 from lifestore_file import lifestore_searches,lifestore_products
 
-#Productos con mayores ventas
 #..................................................Inicializa la lista con ceros
 searchs_by_product = []
 for i in range(0,len(lifestore_products)):
@@ -17,13 +16,13 @@ for search in lifestore_searches:
     searchs_by_product[search[1]] += 1
 #-------------------------------------------------------------------------------
 #---------------------------------Permite obtener los 100 productos más buscados
-quantities = []
+quantities_searched = []
 index = 0
 for value in searchs_by_product:
     temp = []
     contains_value = False
 
-    for quantity in quantities:
+    for quantity in quantities_searched:
         if(quantity[0] == value and index != 0):
             quantity.append(index)
             contains_value = True
@@ -31,31 +30,7 @@ for value in searchs_by_product:
     if(contains_value == False):
         temp.append(value)
         temp.append(index)
-        quantities.append(temp)
+        quantities_searched.append(temp)
     index += 1
 
-quantities.sort(key = lambda x : x[0])
-
-most_searched = []
-
-for quantity in reversed(quantities):
-    first = True
-    for product in quantity:
-        if(first == True):
-            first = False
-            if(product == 0):
-                break
-        else:
-            if(len(most_searched) < 100):
-                most_searched.append(product)
-#-------------------------------------------------------------------------------
-#-----------------------------------Permite obtener los productos menos buscados
-least_searched = []
-for quantity in quantities:
-    first = True
-    for product in quantity:
-        if(first == True):
-            first = False
-        else:
-            if(len(least_searched) < 100):
-                least_searched.append(product)
+quantities_searched.sort(key = lambda x : x[0])
