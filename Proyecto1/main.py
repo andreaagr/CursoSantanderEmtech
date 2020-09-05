@@ -3,6 +3,8 @@ from categories_sales import categories, sales_by_category_reverse
 from most_searched import quantities_searched
 from top50 import quantities_top50
 from categories_searches import least_searched
+from rating import best_products,percent
+
 #----------------------------Imprime la lista de los 50 productos con más ventas
 #YAAAAAAAAAAAAAAAAAAAAAAAAAAA
 '''
@@ -95,3 +97,55 @@ for i in range(0,len(categories)):
 print("------------------------------------------------------------------------------------------------------------\n\n")
 print("Mostrando un total de: ",count,"productos")
 '''
+#--Imprime la lista de los 20 productos con mejores reseñas y menos devoluciones
+'''
+print("LOS 20 PRODUCTOS CON MEJORES RESEÑAS SON:")
+count = 0
+percent_count = 0
+for products in best_products:
+    if count == 20:
+        break
+    
+    print("###############################################################################################################")
+    print("{:^105}".format("Porcentaje de devoluciones: %.1f" % percent[percent_count]))
+    print("###############################################################################################################")
+    
+    for product in products:
+        if(count < 20):
+            print("------------------------------------------------------",count+1,"------------------------------------------------------\n\n")
+            print("Producto: ",lifestore_products[product[0]-1][1])
+            print("Promedio de calificaciones: ",product[1])
+            print("\n")
+            count+=1
+        else:
+            break
+
+    percent_count += 1
+'''
+#-----Imprime la lista de los 20 productos con peores reseñas y más devoluciones
+#YAAAAAAAAAAAAAAA
+'''
+print("LOS 20 PRODUCTOS CON PEORES RESEÑAS SON:")
+count = 0
+percent_count = 0
+for products in reversed(best_products):
+    
+    if count == 20:
+        break
+    
+    print("###############################################################################################################")
+    print("{:^105}".format("Porcentaje de devoluciones: %.4f" % percent[len(percent)-percent_count-1]))
+    print("###############################################################################################################")
+    
+    for product in reversed(products):
+        if(count < 20):
+            print("------------------------------------------------------",count+1,"------------------------------------------------------\n\n")
+            print("Producto: ",lifestore_products[product[0]-1][1])
+            print("Promedio de calificaciones: ",product[1])
+            print("\n")
+            count+=1
+        else:
+            break
+
+    percent_count += 1
+ '''   

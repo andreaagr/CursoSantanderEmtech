@@ -7,7 +7,6 @@ least_searched = []
 for i in range(0,len(categories)):
     least_searched.append(0)
 
-print(quantities_searched)
 index = 0
 for quantity in quantities_searched:
     first = True
