@@ -23,10 +23,6 @@ while(salir):
                     logged = True
                 else:
                     print("Contraseña incorrecta :(")
-            #else:
-            #    
-   
-        
         if(logged == True):
             principal = True
             while(principal):
