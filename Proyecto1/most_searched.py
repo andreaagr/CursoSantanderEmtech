@@ -14,8 +14,8 @@ for i in range(0,len(lifestore_products)):
 #.......................Cuenta cuantas unidades se han comprado de cada producto
 for search in lifestore_searches:
     searchs_by_product[search[1]] += 1
-#-------------------------------------------------------------------------------
-#---------------------------------Permite obtener los 100 productos más buscados
+#...............................................................................
+#..................................Se realiza el mismo proceso que para el top50
 quantities_searched = []
 index = 0
 for value in searchs_by_product:
@@ -34,3 +34,4 @@ for value in searchs_by_product:
     index += 1
 
 quantities_searched.sort(key = lambda x : x[0])
+#...............................................................................

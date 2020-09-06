@@ -10,8 +10,9 @@ from lifestore_file import lifestore_products,lifestore_sales
 #-----------------------------------------------------------------------------------Inicialización
 sum_scores = []        #Almacena la suma de los scores de cada producto
 num_sales = []         #Almacena el número de ventas de cada producto
-rating_average = []    #Almacena los promedios de score de cada producto
 refounds = []          #Almacena el número de reembolsos de cada producto
+
+rating_average = []    #Almacena los promedios de score de cada producto
 product_rating = []    #Almacena la asociación del id del producto con el promedio de score
 product_refounds = []  #Almacena la asociación del id del producto con el porcentaje de devolución
 percent = []           #Almacena los porcentajes de devolución existentes
@@ -29,6 +30,7 @@ for sale in lifestore_sales:
         sum_scores[sale[1]] = 0
         num_sales[sale[1]] = 0
         refounds[sale[1]] = 0
+
     if(sale[4] == 1):
         refounds[sale[1]] += 1
 
@@ -40,9 +42,11 @@ for i in range(0,len(sum_scores)):
     if(num_sales[i] != -1):
         rating_info = []
         refound_info = []
+
         rating_info.append(i)
         rating_info.append(sum_scores[i] / num_sales[i])
         product_rating.append(rating_info)
+        
         refound_info.append(i)
         refound_info.append(refounds[i] / num_sales[i])
         product_refounds.append(refound_info)
